@@ -3,6 +3,7 @@
 
 FROM node:14-slim
 RUN apt-get update || : && apt-get install python -y
+RUN apt-get -y install make
 RUN mkdir -p /workspace/node_modules
 COPY ["./dist", "./package.json", "/workspace/"]
 WORKDIR /workspace
