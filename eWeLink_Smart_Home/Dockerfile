@@ -1,7 +1,8 @@
 # ARG BUILD_FROM
 # FROM $BUILD_FROM
 
-FROM nikolaik/python-nodejs:python3.10-nodejs14-slim
+FROM node:14-slim
+RUN apt-get update || : && apt-get install python -y
 RUN mkdir -p /workspace/node_modules
 COPY ["./dist", "./package.json", "/workspace/"]
 WORKDIR /workspace
